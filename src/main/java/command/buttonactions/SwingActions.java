@@ -1,15 +1,11 @@
-package command;
+package command.buttonactions;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class SwingActions extends JFrame {
-    private JToolBar toolBar;
     private JTextArea textArea;
-    private JMenu menu;
-    private Action openAction;
-    private Action closeAction;
 
     public SwingActions() {
         super("Swing Actions");
@@ -17,8 +13,8 @@ public class SwingActions extends JFrame {
     }
 
     private void setupGUI() {
-        toolBar = new JToolBar();
-        menu = new JMenu("File");
+        JToolBar toolBar = new JToolBar();
+        JMenu menu = new JMenu("File");
 
         textArea = new JTextArea(5, 30);
         JScrollPane scrollPane = new JScrollPane(textArea);
@@ -35,7 +31,7 @@ public class SwingActions extends JFrame {
         setJMenuBar(menuBar);
 
         ImageIcon icon = new ImageIcon("images/icon.png");
-        openAction = new AbstractAction("Open", icon) {
+        Action openAction = new AbstractAction("Open", icon) {
             public void actionPerformed(ActionEvent e) {
                 textArea.append("Opening from " + e.getActionCommand() + "\n");
             }
